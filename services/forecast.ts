@@ -1,6 +1,6 @@
 import {AxiosResponse} from 'axios';
 import {client} from './api';
-import {API_TOKEN} from '@common';
+import {API_TOKEN} from '../common';
 
 export const getDailyCityForecast = async (
   city: string,
