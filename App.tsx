@@ -5,11 +5,16 @@
  * @format
  */
 
+import {ReduxProvider} from './redux';
 import {AppNavigator} from './navigation';
 import React from 'react';
 
 function App(): JSX.Element {
-  return <AppNavigator />;
+  return (
+    <ReduxProvider>
+      <AppNavigator />
+    </ReduxProvider>
+  );
 }
 
 export default App;
