@@ -1,11 +1,6 @@
 import React from 'react';
-import {ScreenContainer} from '../components';
-import {Text} from 'react-native';
+import {TodayForecastTemplate} from '../components';
 
 export const TodayForecastScreen = (): JSX.Element => {
-  return (
-    <ScreenContainer>
-      <Text>TODAY</Text>
-    </ScreenContainer>
-  );
+  return <TodayForecastTemplate />;
 };
