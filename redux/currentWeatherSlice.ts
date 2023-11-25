@@ -30,27 +30,7 @@ export const getDailyCityWeather = createAsyncThunk(
   },
 );
 
-export const getForecastWeather = createAsyncThunk(
-  'api/getForecastWeather',
-  async ({city, days}: {city: string; days: number}, thunkAPI) => {
-    try {
-      const {data} = await axios.get(
-        `${BASE_URL}forecast.json?key=${API_TOKEN}&q=${city}&days=${days}&aqi=yes&alerts=yes`,
-        {
-          headers: {
-            Authorization: '9220c06593a34b33b04213459232211',
-          },
-        },
-      );
-
-      return data;
-    } catch (error: any) {
-      return thunkAPI.rejectWithValue(error?.response.data);
-    }
-  },
-);
-
-const apiSlice = createSlice({
+const currentWeatherSlice = createSlice({
   name: 'api',
   initialState,
   reducers: {},
@@ -72,4 +52,4 @@ const apiSlice = createSlice({
   },
 });
 
-export default apiSlice.reducer;
+export default currentWeatherSlice.reducer;
