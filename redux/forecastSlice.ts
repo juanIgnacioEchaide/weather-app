@@ -34,8 +34,8 @@ export const getForecastWeather = createAsyncThunk(
   },
 );
 
-const forecast = createSlice({
-  name: 'api',
+const forecastSlice = createSlice({
+  name: 'forecast',
   initialState,
   reducers: {},
   extraReducers: builder => {
@@ -56,4 +56,4 @@ const forecast = createSlice({
   },
 });
 
-export default forecast.reducer;
+export default forecastSlice.reducer;

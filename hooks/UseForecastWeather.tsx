@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {RootState, getForecastWeather} from '../redux';
+import {AppDispatch, RootState, getForecastWeather} from '../redux';
 
 export const UseForecastWeather = ({
   city,
@@ -9,7 +9,7 @@ export const UseForecastWeather = ({
   city: string;
   days: number;
 }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const apiData = useSelector((state: RootState) => state.api.data);
   const loading = useSelector((state: RootState) => state.api.loading);
   const error = useSelector((state: RootState) => state.api.error);

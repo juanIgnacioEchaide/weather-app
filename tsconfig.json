@@ -2,5 +2,9 @@
   "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
     "baseUrl": "./",
-  }
+    "paths": {
+      "@common": ["../common"]
+    }
+  },
+  "types": ["node", "jest", "@testing-library/jest-dom"],
 }

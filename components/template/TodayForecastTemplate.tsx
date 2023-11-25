@@ -1,5 +1,5 @@
 import React from 'react';
-//import {ScreenTemplate} from '../../common';
+
 import {
   DailyContainer,
   HourlyCarousel,

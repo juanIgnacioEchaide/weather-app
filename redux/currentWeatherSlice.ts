@@ -31,7 +31,7 @@ export const getDailyCityWeather = createAsyncThunk(
 );
 
 const currentWeatherSlice = createSlice({
-  name: 'api',
+  name: 'currentWeather',
   initialState,
   reducers: {},
   extraReducers: builder => {

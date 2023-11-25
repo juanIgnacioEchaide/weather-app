@@ -1,26 +1,55 @@
 import React, {useEffect, useState} from 'react';
 import {TodayForecastTemplate} from '../components';
-import {UseCurrentCityWeather} from '../hooks';
+import {UseCurrentCityWeather, UseForecastWeather} from '../hooks';
 
 export const TodayForecastScreen = (): JSX.Element => {
   const [cityName, setCityName] = useState<string>('');
-  const {loading, error, data: apiData} = UseCurrentCityWeather(cityName);
+  const {
+    loading: loadingCurrent,
+    error: errorCurrent,
+    data: currentWeatherData,
+  } = UseCurrentCityWeather(cityName);
+
+  const {
+    loading: loadingForecast,
+    error: errorForecast,
+    data: forecastData,
+  } = UseForecastWeather({city: cityName, days: 10});
 
   useEffect(() => {
     setCityName('Buenos Aires');
   }, []);
 
   useEffect(() => {
-    if (loading) {
-      console.log('UseCurrentCityWeather loading', loading);
+    if (loadingCurrent) {
+      console.log('UseCurrentCityWeather loading', loadingCurrent);
     }
-    if (error) {
-      console.log(' UseCurrentCityWeather error', error);
+    if (errorCurrent) {
+      console.log(' UseCurrentCityWeather error', errorCurrent);
     }
-    if (apiData) {
-      console.log('UseCurrentCityWeather apiData', apiData);
+    if (currentWeatherData) {
+      console.log('UseCurrentCityWeather apiData', currentWeatherData);
     }
-  }, [apiData, error, loading]);
+  }, [currentWeatherData, errorCurrent, loadingCurrent]);
+
+  useEffect(() => {
+    if (loadingCurrent) {
+      console.log('UseForecastWeather loading', loadingForecast);
+    }
+    if (errorCurrent) {
+      console.log(' UseForecastWeather error', errorForecast);
+    }
+    if (currentWeatherData) {
+      console.log('UseForecastWeather apiData', forecastData);
+    }
+  }, [
+    currentWeatherData,
+    errorCurrent,
+    errorForecast,
+    forecastData,
+    loadingCurrent,
+    loadingForecast,
+  ]);
 
   return <TodayForecastTemplate />;
 };
