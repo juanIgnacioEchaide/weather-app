@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {TodayForecastTemplate} from '../components';
-import {UseDailyCityForecast} from '../hooks';
+import {UseCurrentCityWeather} from '../hooks';
 
 export const TodayForecastScreen = (): JSX.Element => {
   const [cityName, setCityName] = useState<string>('');
-  const {loading, error, data: apiData} = UseDailyCityForecast(cityName);
+  const {loading, error, data: apiData} = UseCurrentCityWeather(cityName);
 
   useEffect(() => {
     setCityName('Buenos Aires');
@@ -12,13 +12,13 @@ export const TodayForecastScreen = (): JSX.Element => {
 
   useEffect(() => {
     if (loading) {
-      console.log('loading', loading);
+      console.log('UseCurrentCityWeather loading', loading);
     }
     if (error) {
-      console.log('error', error);
+      console.log(' UseCurrentCityWeather error', error);
     }
     if (apiData) {
-      console.log('apiData', apiData);
+      console.log('UseCurrentCityWeather apiData', apiData);
     }
   }, [apiData, error, loading]);
 

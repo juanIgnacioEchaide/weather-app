@@ -1,6 +1,6 @@
 // rootReducer.ts
 import {combineReducers} from '@reduxjs/toolkit';
-import apiReducer from './apiSlice';
+import apiReducer from './currentWeatherSlice';
 
 export const rootReducer = combineReducers({
   api: apiReducer,
