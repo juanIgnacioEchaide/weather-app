@@ -1,10 +1,11 @@
 import React from 'react';
+import {formatDateTitle} from '../../common';
 import {View, Text, StyleSheet} from 'react-native';
 
-export const DailyContainer = (): JSX.Element => {
+export const DailyContainer = ({date}: {date: string}): JSX.Element => {
   return (
     <View style={styles.dailyContainer}>
-      <Text style={styles.dailyTitle}>FRIDAY. DEC 7. 2023</Text>
+      <Text style={styles.dailyTitle}>{formatDateTitle(date)}</Text>
     </View>
   );
 };

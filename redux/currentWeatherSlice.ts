@@ -1,17 +1,22 @@
-import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+import {
+  createSlice,
+  createAsyncThunk,
+  DefaultCurrentWeather,
+} from '@reduxjs/toolkit';
 import axios from 'axios';
 import {API_TOKEN, BASE_URL} from '../common/constants';
+import {WeatherData} from 'common';
 
 interface ApiState {
   loading: boolean;
   error: string | null;
-  data: any;
+  data: WeatherData;
 }
 
 const initialState: ApiState = {
   loading: false,
   error: null,
-  data: null,
+  data: DefaultCurrentWeather,
 };
 
 export const getDailyCityWeather = createAsyncThunk(
@@ -25,7 +30,6 @@ export const getDailyCityWeather = createAsyncThunk(
         },
       },
     );
-    console.error('getDailyCityWeather', data);
     return data;
   },
 );

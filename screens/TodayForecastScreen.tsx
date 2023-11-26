@@ -22,18 +22,6 @@ export const TodayForecastScreen = (): JSX.Element => {
 
   useEffect(() => {
     if (loadingCurrent) {
-      console.log('UseCurrentCityWeather loading', loadingCurrent);
-    }
-    if (errorCurrent) {
-      console.log(' UseCurrentCityWeather error', errorCurrent);
-    }
-    if (currentWeatherData) {
-      console.log('UseCurrentCityWeather apiData', currentWeatherData);
-    }
-  }, [currentWeatherData, errorCurrent, loadingCurrent]);
-
-  useEffect(() => {
-    if (loadingCurrent) {
       console.log('UseForecastWeather loading', loadingForecast);
     }
     if (errorCurrent) {
@@ -51,5 +39,5 @@ export const TodayForecastScreen = (): JSX.Element => {
     loadingForecast,
   ]);
 
-  return <TodayForecastTemplate />;
+  return <TodayForecastTemplate data={currentWeatherData} />;
 };

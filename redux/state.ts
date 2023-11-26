@@ -1,0 +1,43 @@
+import {WeatherData} from 'common';
+
+export const DefaultCurrentWeather: WeatherData = {
+  location: {
+    name: '',
+    region: '',
+    country: '',
+    lat: 0,
+    lon: 0,
+    tzId: '',
+    localtimeEpoch: 0,
+    localtime: '',
+  },
+  current: {
+    lastUpdatedEpoch: 0,
+    lastUpdated: '',
+    tempC: 0,
+    tempF: 0,
+    isDay: 0,
+    condition: {
+      text: '',
+      icon: '',
+      code: 0,
+    },
+    windMph: 0,
+    windKph: 0,
+    windDegree: 0,
+    windDir: '',
+    pressureMb: 0,
+    pressureIn: 0,
+    precipMm: 0,
+    precipIn: 0,
+    humidity: 0,
+    cloud: 0,
+    feelslikeC: 0,
+    feelslikeF: 0,
+    visKm: 0,
+    visMiles: 0,
+    uv: 0,
+    gustMph: 0,
+    gustKph: 0,
+  },
+};
