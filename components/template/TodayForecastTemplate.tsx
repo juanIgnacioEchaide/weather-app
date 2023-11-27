@@ -10,14 +10,14 @@ import {
   WindInfo,
   RadiationInfo,
 } from '../../components';
-import {ForecastItem, WeatherData} from 'common';
+import {Forecast, WeatherData} from 'common';
 
 export const TodayForecastTemplate = ({
   currentData,
   forecastData,
 }: {
   currentData: WeatherData;
-  forecastData: ForecastItem[];
+  forecastData: Forecast;
 }) => {
   return (
     <ScreenContainer>

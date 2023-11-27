@@ -154,3 +154,7 @@ export interface ForecastItem {
   day: Day;
   hour: [];
 }
+
+export interface Forecast {
+  forecastday: ForecastItem[];
+}

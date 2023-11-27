@@ -1,16 +1,12 @@
 import React from 'react';
-import {ForecastItem} from 'common';
+import {Forecast} from 'common';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 
-export const HourlyCarousel = ({
-  hours,
-}: {
-  hours?: ForecastItem[];
-}): JSX.Element => {
+export const HourlyCarousel = ({hours}: {hours?: Forecast}): JSX.Element => {
   return (
     <View style={styles.hourlyContainer}>
       <ScrollView>
-        <Text>{JSON.stringify(hours)}</Text>
+        <Text>{JSON.stringify(hours?.forecastday[0])}</Text>
       </ScrollView>
     </View>
   );
