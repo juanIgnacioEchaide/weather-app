@@ -8,6 +8,7 @@ import {
   ConditionInfo,
   TemperatureInfo,
   WindInfo,
+  RadiationInfo,
 } from '../../components';
 import {WeatherData} from 'common';
 
@@ -16,7 +17,13 @@ export const TodayForecastTemplate = ({data}: {data: WeatherData}) => {
     <ScreenContainer>
       <DailyContainer date={data?.current?.last_updated} />
       <PairContainer
-        rightChildren={<ConditionInfo data={data?.current?.condition} />}
+        rightChildren={
+          <ConditionInfo
+            conditionIcon={data?.current?.condition?.icon}
+            locationCity={data?.location?.name}
+            locationCountry={data?.location?.country}
+          />
+        }
         leftChildren={
           <TemperatureInfo
             centigrades={data?.current?.temp_c}
@@ -36,7 +43,14 @@ export const TodayForecastTemplate = ({data}: {data: WeatherData}) => {
             windKm={data?.current?.wind_kph}
           />
         }
-        rightChildren={<ConditionInfo data={data?.current?.condition} />}
+        rightChildren={
+          <RadiationInfo
+            uvRadiation={data?.current?.uv}
+            feelslikeCentigrades={data?.current?.feelslike_c}
+            precipitations={data?.current?.precip_mm}
+            visibilityKm={data?.current?.vis_km}
+          />
+        }
       />
       <HourlyCarousel hours={[]} />
     </ScreenContainer>

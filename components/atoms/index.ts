@@ -5,3 +5,4 @@ export * from './PairContainer';
 export * from './ConditionInfo';
 export * from './TemperatureInfo';
 export * from './WindInfo';
+export * from './RadiationInfo';
