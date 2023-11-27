@@ -7,13 +7,13 @@ import axios from 'axios';
 import {API_TOKEN, BASE_URL} from '../common/constants';
 import {WeatherData} from 'common';
 
-interface ApiState {
+interface CurrentWeatherState {
   loading: boolean;
   error: string | null;
   data: WeatherData;
 }
 
-const initialState: ApiState = {
+const initialState: CurrentWeatherState = {
   loading: false,
   error: null,
   data: DefaultCurrentWeather,

@@ -3,7 +3,7 @@ import apiReducer from './currentWeatherSlice';
 import forecastReducer from './forecastSlice';
 
 export const rootReducer = combineReducers({
-  api: apiReducer,
+  current: apiReducer,
   forecast: forecastReducer,
 });
 

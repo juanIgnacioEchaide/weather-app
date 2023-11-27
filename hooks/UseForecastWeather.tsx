@@ -4,17 +4,17 @@ import {AppDispatch, RootState, getForecastWeather} from '../redux';
 import {createSelector} from '@reduxjs/toolkit';
 
 const apiDataSelector = createSelector(
-  (state: RootState) => state.api.data,
+  (state: RootState) => state.forecast.data,
   data => data,
 );
 
 const loadingSelector = createSelector(
-  (state: RootState) => state.api.loading,
+  (state: RootState) => state.forecast.loading,
   loading => loading,
 );
 
 const errorSelector = createSelector(
-  (state: RootState) => state.api.error,
+  (state: RootState) => state.forecast.error,
   error => error,
 );
 
