@@ -135,3 +135,22 @@ export interface WeatherData {
     tz_id: string;
   };
 }
+
+export interface Astro {
+  is_moon_up: number;
+  is_sun_up: number;
+  moon_illumination: number;
+  moon_phase: string;
+  moonrise: string;
+  moonset: string;
+  sunrise: string;
+  sunset: string;
+}
+
+export interface ForecastItem {
+  astro: Astro;
+  date: string;
+  date_epoch: number;
+  day: Day;
+  hour: [];
+}

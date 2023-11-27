@@ -39,5 +39,10 @@ export const TodayForecastScreen = (): JSX.Element => {
     loadingForecast,
   ]);
 
-  return <TodayForecastTemplate data={currentWeatherData} />;
+  return (
+    <TodayForecastTemplate
+      currentData={currentWeatherData}
+      forecastData={forecastData}
+    />
+  );
 };

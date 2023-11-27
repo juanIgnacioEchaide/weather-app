@@ -10,49 +10,55 @@ import {
   WindInfo,
   RadiationInfo,
 } from '../../components';
-import {WeatherData} from 'common';
+import {ForecastItem, WeatherData} from 'common';
 
-export const TodayForecastTemplate = ({data}: {data: WeatherData}) => {
+export const TodayForecastTemplate = ({
+  currentData,
+  forecastData,
+}: {
+  currentData: WeatherData;
+  forecastData: ForecastItem[];
+}) => {
   return (
     <ScreenContainer>
-      <DailyContainer date={data?.current?.last_updated} />
+      <DailyContainer date={currentData?.current?.last_updated} />
       <PairContainer
         rightChildren={
           <ConditionInfo
-            conditionIcon={data?.current?.condition?.icon}
-            locationCity={data?.location?.name}
-            locationCountry={data?.location?.country}
+            conditionIcon={currentData?.current?.condition?.icon}
+            locationCity={currentData?.location?.name}
+            locationCountry={currentData?.location?.country}
           />
         }
         leftChildren={
           <TemperatureInfo
-            centigrades={data?.current?.temp_c}
-            farenheit={data?.current?.temp_f}
-            humidity={data?.current?.humidity}
-            pressure={data?.current?.pressure_mb}
-            key={data?.current?.last_updated}
+            centigrades={currentData?.current?.temp_c}
+            farenheit={currentData?.current?.temp_f}
+            humidity={currentData?.current?.humidity}
+            pressure={currentData?.current?.pressure_mb}
+            key={currentData?.current?.last_updated}
           />
         }
       />
       <PairContainer
         leftChildren={
           <WindInfo
-            direction={data?.current?.wind_dir}
-            windDegree={data?.current?.wind_degree}
-            windMiles={data?.current?.wind_mph}
-            windKm={data?.current?.wind_kph}
+            direction={currentData?.current?.wind_dir}
+            windDegree={currentData?.current?.wind_degree}
+            windMiles={currentData?.current?.wind_mph}
+            windKm={currentData?.current?.wind_kph}
           />
         }
         rightChildren={
           <RadiationInfo
-            uvRadiation={data?.current?.uv}
-            feelslikeCentigrades={data?.current?.feelslike_c}
-            precipitations={data?.current?.precip_mm}
-            visibilityKm={data?.current?.vis_km}
+            uvRadiation={currentData?.current?.uv}
+            feelslikeCentigrades={currentData?.current?.feelslike_c}
+            precipitations={currentData?.current?.precip_mm}
+            visibilityKm={currentData?.current?.vis_km}
           />
         }
       />
-      <HourlyCarousel hours={[]} />
+      <HourlyCarousel hours={forecastData} />
     </ScreenContainer>
   );
 };

@@ -34,5 +34,5 @@ export const UseForecastWeather = ({
     dispatch(getForecastWeather({city, days}));
   }, [dispatch, city, days]);
 
-  return {loading, error, data: apiData};
+  return {loading, error, data: apiData?.forecast};
 };
