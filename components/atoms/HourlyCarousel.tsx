@@ -1,22 +1,47 @@
 import React from 'react';
 import {Forecast} from 'common';
-import {ScrollView, StyleSheet, Text, View} from 'react-native';
+import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 export const HourlyCarousel = ({hours}: {hours?: Forecast}): JSX.Element => {
+  const renderHourlyItem = ({item}: {item: any}) => {
+    const handlePress = () => {
+      // Functionality to be executed onPress
+      console.log('Pressed:', item.date); // Example: Logging the pressed item's date
+    };
+
+    return (
+      <TouchableOpacity onPress={handlePress}>
+        <View style={styles.hourlyItem}>
+          <Text>{item.date}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
   return (
-    <View style={styles.hourlyContainer}>
-      <ScrollView>
-        <Text>{JSON.stringify(hours?.forecastday[0])}</Text>
-      </ScrollView>
-    </View>
+    <FlatList
+      data={hours?.forecastday || []}
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      keyExtractor={(item: any, index: number) => `${item.date}_${index}`}
+      renderItem={renderHourlyItem}
+      contentContainerStyle={styles.hourlyContainer}
+    />
   );
 };
 
 const styles = StyleSheet.create({
   hourlyContainer: {
-    flexDirection: 'row',
-    overflow: 'hidden',
-    height: '15%',
     backgroundColor: 'grey',
+    paddingVertical: 10,
+  },
+  hourlyItem: {
+    width: 100, // Set your desired width here
+    height: 100, // Set your desired height here
+    marginHorizontal: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'lightblue',
+    borderRadius: 8,
   },
 });
